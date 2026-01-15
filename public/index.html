@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Sona A Luxury Hotel</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="header-top-left">
+                    <span><i class="fas fa-phone-alt"></i> (12) 345 67890</span>
+                    <span><i class="fas fa-envelope"></i> info.colorlib@gmail.com</span>
+                </div>
+                <div class="header-top-right">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <a href="#bookings-admin-public" class="booking-btn">BOOKING NOW</a>
+                </div>
+            </div>
+            <nav>
+                <a href="#" class="logo">Sona.</a>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#contact-us">Contact Us</a></li>
+                    <li><a href="#admin-login">Admin</a></li> </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="container hero-content">
+            <h1>Sona A Luxury Hotel</h1>
+            <p>Here are the best hotel booking sites, including recommendations for international travel and for finding low-priced hotel rooms.</p>
+            <a href="#bookings-admin-public" class="discover-btn">Discover Now</a>
+        </div>
+    </div>
+
+    <section id="about-us">
+        <div class="container">
+            <div class="section-title">
+                <p>ABOUT US</p>
+                <h2>Intercontinental LA Westlake Hotel</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Sona.com is a leading online accommodation site. We’re passionate about travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41 languages.</p>
+                    <p>So when it comes to booking the perfect hotel, vacation rental, resort, apartment, guest house, or tree house, we’ve got you covered.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://b.zmtcdn.com/data/pictures/9/20739849/1c5f37376e0289fbc6e165e726f94fab_featured_v2.jpg" alt="About Hotel Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-us">
+        <div class="container">
+            <div class="section-title">
+                <p>CONTACT US</p>
+                <h2>Get in Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div>
+                        <h4>Address</h4>
+                        <p>856 Cordia Extension Apt. 356, Lake, United State</p>
+                    </div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>(12) 345 67890</p>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>info.sonahotel@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" placeholder="Your Name">
+                        <label for="contact-email">Email</label>
+                        <input type="email" id="contact-email" placeholder="Your Email">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" placeholder="Your Message"></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="bookings-admin-public" class="admin-section public-booking-section">
+        <div class="container">
+            <div class="section-title">
+                <p>BOOK YOUR STAY</p>
+                <h2>Quick & Easy Booking</h2>
+            </div>
+            <div class="card public-booking-card">
+                <h3>Make a Reservation</h3>
+                <form id="publicBookingForm"> <label>Customer Name</label>
+                    <input type="text" id="public_cust_name" required>
+                    
+                    <label>Email</label>
+                    <input type="email" id="public_cust_email">
+                    
+                    <label>Phone</label>
+                    <input type="text" id="public_cust_phone">
+                    
+                    <label>Room</label>
+                    <select id="publicRoomSelect" required></select>
+                    
+                    <label>Check-in</label>
+                    <input type="date" id="public_check_in" required>
+                    
+                    <label>Check-out</label>
+                    <input type="date" id="public_check_out" required>
+                    
+                    <label>Total Amount (₹)</label>
+                    <input type="number" id="public_total_amount" min="0" required>
+                    
+                    <button type="submit">Book Now</button>
+                </form>
+                <div id="publicBookingMsg"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="admin-login" class="admin-section">
+        <div class="container">
+            <div class="section-title">
+                <p>ADMINISTRATION</p>
+                <h2>Admin Login</h2>
+            </div>
+            <div class="card login-card">
+                <form id="adminLoginForm">
+                    <label for="admin_password">Admin Password</label>
+                    <input type="password" id="admin_password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <button type="button" id="adminLogoutBtn" style="display: none; margin-top: 15px;">Logout</button>
+                <div id="adminLoginMsg"></div>
+            </div>
+        </div>
+    </section>
+
+    <div id="adminContent" style="display: none;">
+        <section class="admin-section">
+            <div class="container">
+                <div class="grid">
+                    <div class="card">
+                        <h3>Rooms Management</h3>
+                        <div id="roomsList" class="muted">Loading rooms...</div>
+                        <hr/>
+                        <h4>Add / Update Room</h4>
+                        <form id="roomForm">
+                            <input type="hidden" id="room_id" />
+                            <div class="form-grid"> <div>
+                                    <label>Room Number</label>
+                                    <input type="text" id="room_number" required>
+                                </div>
+                                <div>
+                                    <label>Type</label>
+                                    <select id="room_type">
+                                        <option>Single</option><option>Double</option><option>Deluxe</option><option>Suite</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label>Price</label>
+                                    <input type="number" id="room_price" min="0" required>
+                                </div>
+                                <div>
+                                    <label>Status</label>
+                                    <select id="room_status">
+                                        <option value="available">Available</option>
+                                        <option value="occupied">Occupied</option>
+                                        <option value="maintenance">Maintenance</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label>Description</label>
+                            <input type="text" id="room_desc" placeholder="e.g. Ocean view, non-smoking">
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="primary-btn">Save Room</button>
+                                <button type="button" id="roomClear" class="secondary-btn">Clear</button>
+                            </div>
+                        </form>
+                        <div id="roomMsg"></div>
+                    </div>
+
+                    <div class="card">
+                        <h3>Create Booking (Admin Only)</h3> <form id="bookingForm">
+                            <div class="form-grid"> <div>
+                                    <label>Customer Name</label>
+                                    <input type="text" id="cust_name" required>
+                                </div>
+                                <div>
+                                    <label>Email</label>
+                                    <input type="email" id="cust_email">
+                                </div>
+                                <div>
+                                    <label>Phone</label>
+                                    <input type="text" id="cust_phone">
+                                </div>
+                                <div>
+                                    <label>City</label>
+                                    <input type="text" id="cust_city">
+                                </div>
+                                <div>
+                                    <label>Room</label>
+                                    <select id="roomSelect" required></select>
+                                </div>
+                                <div>
+                                    <label>Check-in</label>
+                                    <input type="date" id="check_in" required>
+                                </div>
+                                <div>
+                                    <label>Check-out</label>
+                                    <input type="date" id="check_out" required>
+                                </div>
+                                <div>
+                                    <label>Total Amount (₹)</label>
+                                    <input type="number" id="total_amount" min="0" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="primary-btn">Book</button>
+                            </div>
+                        </form>
+                        <div id="bookingMsg"></div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top:30px">
+                    <h3>Current Bookings (Admin Only)</h3> <div id="bookingsList" class="muted">Loading bookings...</div>
+                </div>
+            </div>
+        </section>
+    </div> <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">Sona.</div>
+                    <p>We inspire and reach millions of travelers across 90 local websites.</p>
+                    <div class="footer-social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <h5 class="footer-title">Contact Us</h5>
+                    <p>(12) 345 67890</p>
+                    <p>info.colorlib@gmail.com</p>
+                    <p>856 Cordia Extension Apt. 356, Lake, United State</p>
+                </div>
+                <div class="footer-newsletter">
+                    <h5 class="footer-title">New Latest</h5>
+                    <p>Get the latest updates and offers.</p>
+                    <input type="email" class="footer-email-input" placeholder="Email">
+                    <button class="footer-subscribe-btn">Subscribe</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                Copyright &copy;2025 All rights reserved | This template is made with <i class="fas fa-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

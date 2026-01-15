@@ -1,0 +1,718 @@
+/* ----- 1. Root Variables (Sona Inspired) ----- */
+:root {
+    --primary-color: #cfa878; /* Sona's beige/gold accent color */
+    --primary-dark: #b89160;
+    --danger-color: #dc3545; /* Red for delete */
+    
+    --header-bg: #fff; /* White header background */
+    --footer-bg: #222222; /* Dark footer background */
+    
+    --success-color: #28a745;
+    
+    --bg-light: #f8f7f3; /* Sona's warm, light background */
+    --bg-white: #ffffff;
+    
+    --text-dark: #19191a; /* Sona's dark text */
+    --text-light-gray: #7a7a7a;
+    --text-white: #ffffff;
+    
+    --border-color: #e5e5e5;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    --border-radius: 8px;
+    
+    /* Sona's font stack */
+    --font-heading: 'Cormorant', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+/* ----- 2. Global Reset & Body ----- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+h1 { font-size: 4.5rem; line-height: 1.2; }
+h2 { font-size: 3rem; margin-bottom: 0.75em; text-align: center; }
+h3 { font-size: 2rem; margin-bottom: 0.75em; }
+h4 { font-size: 1.5rem; margin-bottom: 0.5em; }
+
+p {
+    line-height: 1.6;
+    margin-bottom: 1em;
+    color: var(--text-light-gray);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+    background-color: var(--bg-white);
+    border-bottom: 1px solid var(--border-color);
+}
+section:nth-of-type(odd) {
+    background-color: var(--bg-light);
+}
+
+/* ----- 3. Header ----- */
+header {
+    background-color: var(--header-bg);
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-light-gray);
+    margin-bottom: 10px;
+}
+.header-top-left span { margin-right: 20px; }
+.header-top-left i { margin-right: 5px; color: var(--primary-color); }
+.header-top-right {
+    display: flex;
+    align-items: center;
+}
+.header-top-right .social-links a {
+    color: var(--text-light-gray);
+    margin-left: 15px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+.header-top-right .social-links a:hover {
+    color: var(--primary-color);
+}
+.header-top-right .booking-btn {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: background-color 0.2s;
+}
+.header-top-right .booking-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.2s;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary-color);
+}
+
+/* ----- 4. Hero Section ----- */
+.hero-section {
+    background-image: url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/72/a7/b4/ocean-pearl.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 70vh; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align content to the left */
+    color: var(--text-white);
+    position: relative;
+    padding-left: 10%; /* Indent content from left */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-content h1 {
+    color: var(--bg-white);
+    margin-bottom: 0.3em;
+    font-size: 4.5rem; /* Larger hero title */
+    line-height: 1.1;
+}
+
+.hero-content p {
+    color: var(--bg-white);
+    font-size: 1.1rem;
+    margin-bottom: 2em;
+}
+
+.discover-btn {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.2s;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.discover-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ----- 6. Standard Sections (About, Contact) ----- */
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+.section-title h2 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--text-dark);
+    margin-bottom: 0.2em;
+}
+.section-title p {
+    font-size: 1.1rem;
+    color: var(--text-light-gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+.about-text {
+    flex: 1;
+}
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+.contact-info div {
+    margin-bottom: 25px;
+}
+.contact-info h4 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+.contact-info p {
+    margin-bottom: 0;
+}
+.contact-form label {
+    text-transform: none; /* Override uppercase for contact form labels */
+    font-weight: 400;
+}
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 4px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    min-height: 120px;
+    resize: vertical;
+    margin-bottom: 15px; /* Added spacing for contact form */
+}
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(207, 168, 120, 0.15);
+}
+.contact-form button[type="submit"] {
+    margin-top: 0; /* Adjusted from 20px to 0 as margin-bottom on textarea handles spacing */
+    width: auto;
+    display: block;
+}
+
+/* --- General Form Elements --- */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+input[type="password"], /* Added password type */
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(207, 168, 120, 0.15);
+}
+
+button {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+}
+.primary-btn:hover {
+    background-color: var(--primary-dark);
+    box-shadow: 0 4px 10px rgba(207, 168, 120, 0.3);
+}
+
+.secondary-btn {
+    background-color: var(--text-light-gray);
+    color: var(--text-white);
+}
+.secondary-btn:hover {
+    background-color: var(--text-dark);
+}
+
+.danger-btn {
+    background-color: var(--danger-color);
+    color: var(--text-white);
+}
+.danger-btn:hover {
+    opacity: 0.9;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+/* New: Edit and Delete buttons for rooms list */
+.edit-btn {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 6px 12px; /* Smaller padding */
+    font-size: 0.85rem;
+    border-radius: 4px;
+    margin-right: 5px;
+}
+.edit-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    color: var(--text-white);
+    padding: 6px 12px; /* Smaller padding */
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+.delete-btn:hover {
+    opacity: 0.9;
+}
+
+
+/* ----- 7. Admin Section Styling ----- */
+.admin-section .grid {
+    margin-top: 30px;
+    display: grid; /* Ensure grid is applied */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+}
+.admin-section .card {
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    background: var(--bg-white);
+    border-radius: var(--border-radius);
+}
+.admin-section h3 {
+    font-family: var(--font-heading); /* Back to heading font for sections */
+    font-size: 2rem;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+.admin-section h4 {
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+.admin-section hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 20px 0;
+}
+
+/* Forms grid layout */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-fit for responsiveness */
+    gap: 15px 20px; /* Row and column gap */
+}
+.form-grid > div { /* For wrapping labels and inputs */
+    display: flex;
+    flex-direction: column;
+}
+.form-grid label {
+    margin-top: 0; /* Reset margin top as gap handles spacing */
+}
+.form-actions {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+}
+.form-actions button {
+    margin-top: 0; /* Reset margin on buttons */
+}
+
+
+#roomsList div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+#roomsList div:last-child {
+    border-bottom: none;
+}
+#roomsList div span {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+#roomsList button { /* General styling, will be overridden by .edit-btn/.delete-btn */
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    margin-top: 0;
+    margin-left: 5px;
+    border-radius: 4px;
+}
+
+.admin-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.admin-section th, .admin-section td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.95rem;
+}
+.admin-section th {
+    background-color: var(--bg-light);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    color: var(--text-light-gray);
+}
+.admin-section tr:last-child th,
+.admin-section tr:last-child td {
+    border-bottom: none;
+}
+.admin-section td button {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    margin-top: 0;
+}
+
+.ok {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+.err {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* Public Booking Section Specific */
+.public-booking-section .public-booking-card {
+    max-width: 600px; /* Make public booking card narrower */
+    margin: 0 auto;
+}
+.public-booking-section .public-booking-card .form-grid {
+    grid-template-columns: 1fr; /* Stack fields for public form */
+}
+
+
+/* Admin Login specific styles */
+.login-card {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.login-card label {
+    margin-bottom: 10px;
+    margin-top: 0;
+}
+.login-card input {
+    margin-bottom: 15px;
+}
+.login-card button {
+    width: 100%;
+    margin-top: 0; /* Reset default button margin */
+}
+
+
+/* ----- 8. Footer ----- */
+footer {
+    background-color: var(--footer-bg);
+    color: var(--text-white);
+    padding: 60px 0 30px;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 15px;
+}
+.footer-about p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+}
+.footer-social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    margin-right: 15px;
+    font-size: 1.2rem;
+    transition: color 0.2s;
+}
+.footer-social-links a:hover {
+    color: var(--primary-color);
+}
+.footer-title {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+}
+.footer-contact p {
+    margin-bottom: 10px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.footer-email-input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    font-size: 1rem;
+}
+.footer-email-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+.footer-subscribe-btn {
+    background-color: var(--primary-color);
+    color: var(--text-white);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+.footer-subscribe-btn:hover {
+    background-color: var(--primary-dark);
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+.footer-bottom a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-top-right {
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .header-top-right .booking-btn {
+        margin-left: 0;
+    }
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    nav ul {
+        flex-direction: column;
+        margin-top: 15px;
+        width: 100%;
+    }
+    nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+    nav ul li a {
+        width: 100%;
+        display: block;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+
+    .hero-content {
+        padding-left: 5%;
+        max-width: 90%;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .admin-section .grid {
+        grid-template-columns: 1fr;
+    }
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    .form-actions {
+        flex-direction: column;
+    }
+    .form-actions button {
+        width: 100%;
+    }
+}
